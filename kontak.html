@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Shoota Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050A14;--bg2:#0B1221;--bg3:#111827;
+  --accent:#4F8EF7;--accent2:#A78BFA;--accent3:#34D399;
+  --text:#F1F5F9;--text2:#94A3B8;--text3:#475569;
+  --border:rgba(255,255,255,0.06);--border2:rgba(79,142,247,0.25);
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,10,20,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.5px;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(79,142,247,0.4)}50%{box-shadow:0 0 0 8px rgba(79,142,247,0)}}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:14px;color:var(--text2);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff;padding:9px 22px;border-radius:100px;font-size:14px;font-weight:500;transition:all .2s;cursor:pointer;border:none}
+.nav-cta:hover{background:#3B7AE8;transform:translateY(-1px)}
+
+.page-hero{padding:140px 48px 72px;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);border-bottom:1px solid var(--border)}
+.section-tag{font-size:12px;letter-spacing:0.12em;color:var(--accent);text-transform:uppercase;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-tag::before{content:'';width:24px;height:1px;background:var(--accent);display:inline-block}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:16px}
+.section-sub{font-size:18px;color:var(--text2);max-width:520px;line-height:1.65;font-weight:300}
+
+/* KONTAK LAYOUT */
+.kontak-wrap{padding:72px 48px 100px;display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+
+/* INFO SIDE */
+.kontak-intro{margin-bottom:40px}
+.kontak-intro p{font-size:16px;color:var(--text2);line-height:1.75;font-weight:300}
+.kontak-channels{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.channel-card{display:flex;align-items:center;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:all .25s}
+.channel-card:hover{border-color:var(--border2);transform:translateX(4px)}
+.channel-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.icon-blue{background:rgba(79,142,247,0.12)}
+.icon-purple{background:rgba(167,139,250,0.12)}
+.icon-green{background:rgba(52,211,153,0.12)}
+.icon-amber{background:rgba(251,176,36,0.12)}
+.channel-text strong{display:block;font-size:14px;font-weight:500;margin-bottom:2px}
+.channel-text span{font-size:13px;color:var(--text2);font-weight:300}
+.process-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;letter-spacing:-0.2px}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.step:last-child{border-bottom:none;padding-bottom:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--accent);flex-shrink:0;margin-top:2px}
+.step-title{font-size:14px;font-weight:500;margin-bottom:2px}
+.step-desc{font-size:13px;color:var(--text2);font-weight:300;line-height:1.5}
+
+/* FORM SIDE */
+.kontak-form{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:44px;position:sticky;top:88px}
+.form-header{margin-bottom:32px}
+.form-header h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
+.form-header p{font-size:14px;color:var(--text2);font-weight:300}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;color:var(--text2);margin-bottom:8px;font-weight:400;letter-spacing:0.01em}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;transition:border-color .2s;outline:none;appearance:none;-webkit-appearance:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text3)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(79,142,247,0.4);background:rgba(79,142,247,0.03)}
+.form-group textarea{height:110px;resize:none;line-height:1.6}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+.form-group select option{background:var(--bg2);color:var(--text)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-budget{display:flex;gap:8px;flex-wrap:wrap}
+.budget-opt{padding:7px 16px;border-radius:100px;font-size:12px;font-weight:500;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.budget-opt:hover{border-color:var(--border2);color:var(--text)}
+.budget-opt.selected{background:rgba(79,142,247,0.12);border-color:rgba(79,142,247,0.4);color:var(--accent)}
+.form-divider{height:1px;background:var(--border);margin:8px 0 20px}
+.form-submit{width:100%;background:var(--accent);color:#fff;padding:15px;border-radius:100px;font-size:15px;font-weight:500;border:none;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px}
+.form-submit:hover{background:#3B7AE8;transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,142,247,0.25)}
+.form-submit:active{transform:translateY(0)}
+.form-note{text-align:center;font-size:12px;color:var(--text3);margin-top:12px}
+
+/* SUCCESS STATE */
+.success-state{display:none;text-align:center;padding:48px 0}
+.success-icon{font-size:48px;margin-bottom:16px}
+.success-state h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+.success-state p{font-size:14px;color:var(--text2);font-weight:300;line-height:1.6}
+
+.site-footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;gap:6px}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:13px;color:var(--text3);transition:color .2s}
+.footer-links a:hover{color:var(--text2)}
+.footer-copy{font-size:12px;color:var(--text3)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.page-hero .section-tag,.page-hero .section-title,.page-hero .section-sub{animation:fadeUp 0.6s ease both}
+.page-hero .section-title{animation-delay:0.1s}
+.page-hero .section-sub{animation-delay:0.2s}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span> Shoota Company</a>
+  <div class="nav-links">
+    <a href="index.html">Beranda</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="kontak.html" class="active">Kontak</a>
+  </div>
+  <a href="kontak.html"><button class="nav-cta">Mulai Proyek</button></a>
+</nav>
+
+<div class="page-hero">
+  <div class="section-tag">Hubungi Kami</div>
+  <h1 class="section-title">Ada Proyek<br>di Pikiran?<br>Mari Bicara</h1>
+  <p class="section-sub">Konsultasi gratis, tanpa tekanan. Kami siap membantu dari tahap ide hingga website Anda live di internet.</p>
+</div>
+
+<div class="kontak-wrap">
+  <!-- INFO -->
+  <div>
+    <div class="kontak-intro">
+      <p>Tim kami merespons setiap pesan dalam waktu kurang dari 2 jam pada hari kerja. Tidak ada pertanyaan yang terlalu kecil — kami senang membantu Anda menemukan solusi terbaik.</p>
+    </div>
+
+    <div class="kontak-channels">
+      <div class="channel-card">
+        <div class="channel-icon icon-green">📱</div>
+        <div class="channel-text"><strong>WhatsApp (Direkomendasikan)</strong><span>+62 877 2047 7183 — Respon tercepat</span></div>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon icon-blue">📧</div>
+        <div class="channel-text"><strong>Email</strong><span>ShotaCompany@gmail.com</span></div>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon icon-purple">📸</div>
+        <div class="channel-text"><strong>Instagram</strong><span>Cooming Soon</span></div>
+      </div>
+      <div class="channel-card">
+        <div class="channel-icon icon-amber">📍</div>
+        <div class="channel-text"><strong>Lokasi & Jam Layanan</strong><span>Cirebon , Pukul 10.00 - 22.00</span></div>
+      </div>
+    </div>
+
+    <div class="process-title">Alur Kerja Kami</div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Konsultasi Gratis</div><div class="step-desc">Anda ceritakan kebutuhan, kami dengarkan dan sarankan solusi terbaik.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Penawaran & Kesepakatan</div><div class="step-desc">Kami kirimkan detail harga dan timeline — transparan tanpa biaya tersembunyi.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Proses Pengerjaan</div><div class="step-desc">Tim kami mulai mengerjakan. Update progres dikirim setiap 2–3 hari.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><div class="step-title">Revisi & Finalisasi</div><div class="step-desc">Anda beri masukan, kami revisi hingga Anda benar-benar puas.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div><div class="step-title">Launch & Support</div><div class="step-desc">Website live! Kami tetap stand by untuk bantuan teknis pasca-launch.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="kontak-form">
+    <div id="form-content">
+      <div class="form-header">
+        <h2>Kirim Pesan</h2>
+        <p>Isi form di bawah, kami balas dalam &lt; 2 jam hari kerja</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group"><label>Nama Lengkap *</label><input type="text" id="nama" placeholder="Nama Anda"></div>
+        <div class="form-group">
+          <label>Wbsite Di Butuhkan Dalam Waktu? *</label>
+          <select id="timeline">
+            <option value="">Pilih waktu yang tentukan...</option>
+            <option>1 minggu</option>
+            <option>2 minggu</option>
+            <option>3 minggu</option>
+            <option>4 minggu</option>
+            <option>Lebih dari 1 bulan</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="email@anda.com"></div>
+      <div class="form-group">
+        <label>Jenis Layanan *</label>
+        <select id="layanan">
+          <option value="">Pilih layanan yang dibutuhkan...</option>
+          <option>Website Tugas Sekolah (Starter)</option>
+          <option>Website Portofolio Mahasiswa (Pro Akademik)</option>
+          <option>Company Profile (Business Essential)</option>
+          <option>Toko Online / E-Commerce</option>
+          <option>Perawatan Website (Maintenance)</option>
+          <option>Custom / Enterprise</option>
+          <option>Belum tahu, butuh konsultasi</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Estimasi Budget</label>
+        <div class="form-budget">
+          <button class="budget-opt" onclick="selectBudget(this)">&lt; Rp 300rb</button>
+          <button class="budget-opt" onclick="selectBudget(this)">Rp 300–700rb</button>
+          <button class="budget-opt" onclick="selectBudget(this)">Rp 700rb–2jt</button>
+          <button class="budget-opt" onclick="selectBudget(this)">&gt; Rp 2jt</button>
+          <button class="budget-opt" onclick="selectBudget(this)">Belum tahu</button>
+        </div>
+      </div>
+      <div class="form-divider"></div>
+      <div class="form-group"><label>Ceritakan Proyek Anda *</label><textarea id="pesan" placeholder="Deskripsikan website yang Anda butuhkan — tujuan, fitur yang diinginkan, atau referensi website yang Anda suka..."></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Kirim Pesan <span>→</span></button>
+      <p class="form-note">🔒 Informasi Anda aman dan tidak akan dibagikan kepada pihak ketiga</p>
+    </div>
+
+    <div class="success-state" id="success-state">
+      <div class="success-icon">✅</div>
+      <h3>Pesan Terkirim!</h3>
+      <p>Terima kasih, <span id="nama-display">kawan</span>!<br>Tim kami akan menghubungi Anda via WhatsApp atau email dalam waktu kurang dari 2 jam pada hari kerja.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo"><span class="logo-dot"></span> Shoota Company</div>
+  <div class="footer-links">
+    <a href="index.html">Beranda</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="kontak.html">Kontak</a>
+  </div>
+  <div class="footer-copy">© 2025 Shoota Company</div>
+</footer>
+
+<script>
+function selectBudget(btn) {
+  document.querySelectorAll('.budget-opt')
+    .forEach(b => b.classList.remove('selected'));
+
+  btn.classList.add('selected');
+}
+
+function submitForm() {
+  const nama = document.getElementById('nama').value.trim();
+  const timeline = document.getElementById('timeline').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const layanan = document.getElementById('layanan').value;
+  const pesan = document.getElementById('pesan').value.trim();
+
+  // ambil budget yang dipilih
+  const selectedBudget = document.querySelector('.budget-opt.selected');
+  const budget = selectedBudget
+    ? selectedBudget.textContent.trim()
+    : 'Belum dipilih';
+
+  // validasi field wajib
+  if (!nama || !timeline || !layanan || !pesan) {
+    alert('Mohon lengkapi field yang wajib diisi (*)');
+    return;
+  }
+
+  // NOMOR WHATSAPP TUJUAN
+  // GANTI DENGAN NOMOR KAMU (format: 628xxxxxxxxxx)
+  const nomorAdmin = '6287720477183';
+
+  // template pesan WhatsApp
+  const text = `Halo Shoota Company,
+
+Saya tertarik menggunakan jasa pembuatan website.
+
+====================
+DATA PEMESANAN JASA
+====================
+
+Nama: ${nama}
+Kapan Website Dibutuhkan: ${timeline}
+Email: ${email || '-'}
+
+Layanan Dipilih:
+${layanan}
+
+Estimasi Budget:
+${budget}
+
+Deskripsi Proyek:
+${pesan}
+
+Terima kasih.`;
+
+  // encode pesan agar aman di URL
+  const encodedText = encodeURIComponent(text);
+
+  // tampilkan nama di success state
+  document.getElementById('nama-display').textContent =
+    nama.split(' ')[0];
+
+  // tampilkan success message sebentar
+  document.getElementById('form-content').style.display = 'none';
+  document.getElementById('success-state').style.display = 'block';
+
+  // redirect ke WhatsApp setelah 1 detik
+  setTimeout(() => {
+    window.open(
+      `https://wa.me/${nomorAdmin}?text=${encodedText}`,
+      '_blank'
+    );
+  }, 1000);
+}
+</script>
+</body>
+</html>
