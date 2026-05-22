@@ -162,42 +162,48 @@ nav{padding:0 20px;height:60px}
 }
 
 @media(max-width:480px){
-nav{padding:0 16px;height:56px}
-.nav-logo{font-size:14px}
+html{scroll-behavior:smooth}
+body{-webkit-touch-callout:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+*{-webkit-tap-highlight-color:transparent}
+nav{padding:0 12px;height:52px}
+.nav-logo{font-size:13px;gap:4px}
+.logo-dot{width:6px;height:6px}
 .nav-links{display:none}
-.nav-cta{padding:7px 14px;font-size:11px}
-.page-hero{padding:80px 16px 36px}
-.section-title{font-size:clamp(22px,4vw,32px)}
-.section-sub{font-size:14px;line-height:1.6}
-.kontak-wrap{padding:28px 16px 40px;gap:20px}
+.nav-cta{padding:6px 14px;font-size:11px}
+.page-hero{padding:70px 12px 32px}
+.section-title{font-size:clamp(20px,3.5vw,28px)}
+.section-sub{font-size:13px;line-height:1.5}
+.kontak-wrap{padding:24px 12px 32px;grid-template-columns:1fr;gap:16px}
 .kontak-intro{margin-bottom:16px}
-.kontak-intro p{font-size:14px}
-.channel-card{padding:12px 14px;gap:12px}
-.channel-icon{width:36px;height:36px;font-size:14px}
-.channel-text strong{font-size:13px}
-.channel-text span{font-size:12px}
-.process-title{font-size:14px;margin-bottom:12px}
-.step{padding:10px 0;gap:10px}
-.step-num{width:22px;height:22px;font-size:10px}
+.kontak-intro p{font-size:13px;line-height:1.6}
+.kontak-channels{gap:10px;margin-bottom:24px}
+.channel-card{padding:10px 12px;gap:10px;border-radius:10px;font-size:12px}
+.channel-icon{width:32px;height:32px;font-size:13px}
+.channel-text strong{font-size:12px}
+.channel-text span{font-size:11px}
+.process-title{font-size:13px;margin-bottom:10px}
+.process-steps{gap:0}
+.step{padding:10px 0;gap:8px}
+.step-num{width:20px;height:20px;font-size:9px}
 .step-title{font-size:12px}
-.step-desc{font-size:11px;line-height:1.4}
-.kontak-form{padding:20px;border-radius:12px}
-.form-header h2{font-size:17px;margin-bottom:4px}
-.form-header p{font-size:12px}
-.form-group{margin-bottom:14px}
-.form-group label{font-size:11px;margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{font-size:12px;padding:9px 12px;border-radius:8px}
-.form-group textarea{height:90px;font-size:12px}
+.step-desc{font-size:10px;line-height:1.4}
+.kontak-form{padding:16px;border-radius:10px}
+.kontak-form:hover{border-color:var(--border)}
+.form-header h2{font-size:16px;margin-bottom:4px}
+.form-header p{font-size:11px}
+.form-group{margin-bottom:12px}
+.form-group label{font-size:10px;margin-bottom:5px}
+.form-group input,.form-group textarea,.form-group select{font-size:12px;padding:8px 10px;border-radius:6px}
+.form-group textarea{height:80px;font-size:11px}
 .form-row{grid-template-columns:1fr}
-.form-budget{flex-direction:column;gap:8px}
-.budget-opt{width:100%;padding:8px 12px;font-size:12px}
-.form-submit{padding:10px;font-size:13px;margin-top:2px}
-.form-note{font-size:10px;margin-top:8px}
-.site-footer{padding:16px;gap:12px}
-.footer-logo{font-size:12px}
-.footer-links{gap:8px}
-.footer-links a{font-size:11px}
-.footer-copy{font-size:10px}
+.form-budget{flex-direction:column;gap:6px}
+.budget-opt{width:100%;padding:7px 10px;font-size:11px}
+.form-submit{padding:9px;font-size:12px;margin-top:0}
+.form-note{font-size:9px;margin-top:6px}
+.site-footer{padding:12px;gap:8px}
+.footer-logo{font-size:11px;gap:3px}
+.footer-links{gap:6px;font-size:10px}
+.footer-copy{font-size:9px}
 }
 </style>
 </head>
